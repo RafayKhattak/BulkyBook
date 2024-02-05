@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Setting the character set and viewport for responsive design -->
+    <title>@ViewData["Title"] - BulkyBookWeb</title>
+    <!-- Setting the title for the view -->
+    <link rel="stylesheet" href="~/css/BootswatchTheme.css" />
+    <!-- Including Bootswatch theme CSS file -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <!-- Including site-specific CSS file with versioning -->
+    <link rel="stylesheet" href="~/BulkyBookWeb.styles.css" asp-append-version="true" />
+    <!-- Including BulkyBookWeb styles CSS file with versioning -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <!-- Including Toastr CSS file for notifications -->
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+            <!-- Navbar with dark background -->
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor02">
+                    <ul class="navbar-nav me-auto">
+                        <!-- Navigation items -->
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                            <!-- Home link -->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Category" asp-action="Index">Category</a>
+                            <!-- Category link -->
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+            <!-- Render the body content of the view -->
+        </main>
+    </div>
+
+    <footer class="footer text-muted bg-dark">
+        <!-- Footer with dark background -->
+        <div class="container">
+            &copy; 2024 - BulkyBookWeb - Created by<a href="https://github.com/RafayKhattak/BulkyBook-NET-MVC-Core" style="text-decoration: none" target="_blank"> Rafay Khattak</a>
+            <!-- Copyright information and link to the GitHub repository -->
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <!-- Including jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <!-- Including Bootstrap JavaScript library -->
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Including site-specific JavaScript file with versioning -->
+    @await RenderSectionAsync("Scripts", required: false)
+    <!-- Render additional scripts if any -->
+</body>
+</html>

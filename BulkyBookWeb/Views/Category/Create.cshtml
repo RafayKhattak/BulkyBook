@@ -1,0 +1,36 @@
+﻿@model Category // Specifies the model type for this view
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">
+                Create Category
+            </h2>
+        </div>
+        <!-- Input field for the category Name -->
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+            <!-- Display validation error message for the Name field -->
+        </div>
+        <!-- Input field for the category DisplayOrder -->
+        <div class="mb-3">
+            <label asp-for="DisplayOrder"></label>
+            <input asp-for="DisplayOrder" class="form-control" />
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+            <!-- Display validation error message for the DisplayOrder field -->
+        </div>
+        <!-- Button to submit the form -->
+        <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
+        <!-- Link to navigate back to the category list -->
+        <a asp-controller="Category" asp-action="Index" class="btn btn-primary" style="width:150px">Back to List</a>
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+        // Include the validation scripts partial
+    }
+}

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Category> // Specifies the model type for this view
+
+@{
+    ViewData["Title"] = "Index"; // Setting the title for the view
+}
+
+<partial name="_Notification" /> <!-- Including a partial view for notifications -->
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Category List
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Category" asp-action="Create" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; Create New Category
+            </a>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+<!-- Table for displaying the list of categories -->
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th style="color:whitesmoke">
+                Category Name
+            </th>
+            <th style="color:whitesmoke">
+                Display Order
+            </th>
+            <th style="color:whitesmoke">
+                ID
+            </th>
+            <th style="color:whitesmoke">
+                DateTime
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Looping through each category in the model and displaying its information -->
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td width="35%" style="color:whitesmoke">
+                    @obj.Name <!-- Displaying the category name -->
+                </td>
+                <td width="20%" style="color:whitesmoke">
+                    @obj.DisplayOrder <!-- Displaying the category display order -->
+                </td>
+                <td width="5%" style="color:whitesmoke">
+                    @obj.Id <!-- Displaying the category ID -->
+                </td>
+                <td width="20%" style="color:whitesmoke">
+                    @obj.CreatedDateTime <!-- Displaying the category creation date and time -->
+                </td>
+                <td width="15%" class="text-center">
+                    <!-- Buttons for editing and deleting the category -->
+                    <div class="w-100 d-flex justify-content-center">
+                        <a asp-controller="Category" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-primary me-2">
+                            <i class="bi bi-pencil-square"></i>Edit
+                        </a>
+                        <a asp-controller="Category" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger ms-2">
+                            <i class="bi bi-trash-fill"></i>Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
